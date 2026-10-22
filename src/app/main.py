@@ -1,5 +1,10 @@
 from fastapi import FastAPI
 
+from app.core.config import get_settings
+
+settings = get_settings()
+
+
 app = FastAPI(
     title="Orders API",
     description=(
@@ -9,4 +14,5 @@ app = FastAPI(
         "assíncrono de pagamentos."
     ),
     version="0.1.0",
+    debug=settings.debug,
 )
