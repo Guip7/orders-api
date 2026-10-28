@@ -45,6 +45,14 @@ O `pre-commit install` ativa as verificações automáticas a cada commit
 O pre-commit executa Ruff e mypy automaticamente a cada `git commit`.
 Se alguma verificação falhar, o commit é barrado até o problema ser corrigido.
 
+### Rodando com Docker
+
+    cp .env.example .env
+    docker compose up --build
+
+API em http://localhost:8000/docs. Para derrubar: `docker compose down`
+(use `-v` para apagar também os dados do banco).
+
 ## Documentação do projeto
 
 - [PRD](docs/prd.md)
