@@ -37,3 +37,10 @@ def test_invalid_environment_fails_fast(monkeypatch: pytest.MonkeyPatch) -> None
 
 def test_get_settings_is_cached() -> None:
     assert get_settings() is get_settings()
+
+
+def test_missing_database_url_fails_fast(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.delenv("DATABASE_URL", raising=False)
+
+    with pytest.raises(ValidationError):
+        Settings(_env_file=None)
