@@ -8,6 +8,8 @@ os.environ.setdefault(
     "DATABASE_URL", "postgresql+asyncpg://user:pass@localhost:5432/test"
 )
 
+os.environ.setdefault("SECRET_KEY", "test-secret-key-with-at-least-32-characters")
+
 from app.core.config import get_settings  # noqa: E402
 
 

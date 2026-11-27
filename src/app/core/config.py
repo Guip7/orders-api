@@ -1,6 +1,7 @@
 from functools import lru_cache
 from typing import Literal
 
+from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -19,6 +20,12 @@ class Settings(BaseSettings):
     debug: bool = False
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"
     database_url: str
+
+    # Obrigatória, sem padrão e com tamanho mínimo: a app não sobe sem uma chave forte.
+    secret_key: SecretStr = Field(min_length=32)
+    jwt_algorithm: Literal["HS256"] = "HS256"
+    access_token_expire_minutes: int = Field(default=15, gt=0)
+    refresh_token_expire_days: int = Field(default=7, gt=0)
 
 
 @lru_cache

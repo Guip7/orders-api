@@ -1,5 +1,7 @@
 # Orders API
 
+![CI](https://github.com/Guip7/orders-api/actions/workflows/ci.yml/badge.svg)
+
 API de catálogo, estoque, pedidos e pagamentos, com foco em consistência
 de estoque sob concorrência, idempotência e processamento assíncrono.
 
@@ -52,6 +54,7 @@ Se alguma verificação falhar, o commit é barrado até o problema ser corrigid
 
 API em http://localhost:8000/docs. Para derrubar: `docker compose down`
 (use `-v` para apagar também os dados do banco).
+
 
 ## Documentação do projeto
 
